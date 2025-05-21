@@ -5,6 +5,10 @@ document.documentElement.classList.toggle('dark');
 
 
 function createOptionToSelect() {
+  let defaultOption = document.createElement("option");
+  defaultOption.textContent = "All option";
+  defaultOption.value = "";
+  elCountrySelect.appendChild(defaultOption);
 
   countries.forEach(item => {
     let elOption = document.createElement("option");
