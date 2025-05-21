@@ -1,0 +1,116 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/nunito-sans-v15-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/nunito-sans-v15-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/nunito-sans-v15-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/nunito-sans-v15-latin-800.woff2') format('woff2');
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.containers {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.site-header {
+    box-shadow: 0px 2px 4px 0px #0000000E;
+}
+
+.search-input {
+    background-image: url(../images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 32px center;
+}
+
+.darc {
+    box-shadow: 0px 0px 7px 2px #00000008;
+}
+
+body {
+    background-color: white;
+    color: black;
+    transition: background 0.3s ease;
+}
+
+.dark-mode {
+    background-color: #202C36 !important;
+    color: white !important;
+}
+
+.dark-mode header {
+    background-color: #2B3844 !important;
+    color: #FFFFFF !important;
+}
+
+.dark-mode header span {
+    color: white !important;
+    fill: white !important;
+}
+
+.dark-mode div .darc {
+    background-color: #2B3844 !important;
+}
+
+.dark-mode div strong {
+    color: #FFFFFF !important;
+}
+
+.dark-mode div span {
+    color: #FFFFFF !important;
+}
+
+.dark-mode div button {
+    border: #202C36;
+}
+
+.dark-mode header button {
+    border: #202C36;
+}
+
+.dark-mode {
+    background-color: #22343D;
+    color: #ffffff;
+}
+
+.dark-mode section div {
+    color: #ffffff !important;
+}
+
+.dark-mode section input {
+    background-color: #2B3844 !important;
+    color: #ffffff !important;
+}
+
+.dark-mode section select {
+    background-color: #2B3844 !important;
+    color: #ffffff !important;
+}
