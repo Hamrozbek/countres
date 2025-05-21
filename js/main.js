@@ -78,15 +78,15 @@ function filterCountries() {
   let filtered = countries;
 
   if (selectValue !== "") {
-    filtered = filtered.filter(c => c.name.toLowerCase() === selectValue);
+    filtered = filtered.filter(item => item.name.toLowerCase() === selectValue);
   }
 
   if (searchValue !== "") {
-    filtered = filtered.filter(c =>
-      c.name.toLowerCase().includes(searchValue) ||
-      String(c.population).includes(searchValue) ||
-      c.region.toLowerCase().includes(searchValue) ||
-      c.capital.toLowerCase().includes(searchValue)
+    filtered = filtered.filter(item =>
+      item.name.toLowerCase().includes(searchValue) ||
+      String(item.population).includes(searchValue) ||
+      item.region.toLowerCase().includes(searchValue) ||
+      item.capital.toLowerCase().includes(searchValue)
     );
   }
 
