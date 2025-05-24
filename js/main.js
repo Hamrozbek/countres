@@ -5,6 +5,8 @@ document.documentElement.classList.toggle('dark');
 
 let elLikeCount = document.querySelector(".like-count")
 let elSavedCount = document.querySelector(".saved-count")
+let elModalWrapper = document.querySelector(".modal-wrapper")
+let elModalInner = document.querySelector(".modal-inner")
 
 
 let likeList = []
@@ -91,28 +93,28 @@ elSearchInput.addEventListener("input", filterCountries);
 
 
 // Action start
-function handleLikeClick(id){
+function handleLikeClick(id) {
   let findeObj = countries.find(item => item.id === id)
   findeObj.isLiked = !findeObj.isLiked
-  renderCountries(countries,elCountryList)
+  renderCountries(countries, elCountryList)
   elLikeCount.textContent = countries.filter(item => item.isLiked).length
 }
 
-function handleLikeBtnClick(){
+function handleLikeBtnClick() {
   let likeList = countries.filter(item => item.isLiked)
   renderCountries(likeList, elCountryList)
 }
- // action and
+// action and
 
 // Action Saved start 
-function handleSavedClick(id){
+function handleSavedClick(id) {
   let findeObj = countries.find(item => item.id === id)
   findeObj.isSaved = !findeObj.isSaved
   renderCountries(countries, elCountryList)
   elSavedCount.textContent = countries.filter(item => item.isSaved).length
 }
 
-function handleSavedBtnClick(){
+function handleSavedBtnClick() {
   let SavedList = countries.filter(item => item.isSaved)
   renderCountries(SavedList, elCountryList)
 }
@@ -120,5 +122,34 @@ function handleSavedBtnClick(){
 
 
 // action more start 
+
+function handleMoreCLick(id) {
+  elModalWrapper.classList.remove("scale-0")
+  let findeObj = countries.find(item => item.id == id)
+  console.log(findeObj);
+  elModalInner.innerHTML = `
+  <div class="flex justify-between gap-[40px] items-center">
+    <img class="w-[60%] rounded-[10px]" src="${findeObj.flag}" alt="Single Flag" width="400" height="300"/>
+    
+    <div class="w-[40%]">
+      <strong class="text-[18px] inline-block text-[#111517] font-extrabold mb-[16px]">
+        ${findeObj.name}
+      </strong>
+
+      <p><span class="font-semibold">Population: </span> ${findeObj.population}</p>
+      <p><span class="font-semibold">Region: </span> ${findeObj.name}</p>
+      <p><span class="font-semibold">Capital: </span> ${findeObj.capital}</p>
+    </div>
+  </div>
+`;
+
+}
+
+elModalWrapper.addEventListener("click", function (e) {
+  if (e.target.id) {
+    elModalWrapper.classList.add("scale-0");
+  }
+
+})
 
 // action more and 
