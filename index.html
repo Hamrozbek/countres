@@ -52,6 +52,40 @@
                             fill="white" stroke="#111517" stroke-width="1.25" />
                     </svg>
                 </button>
+
+                <button onclick="openAddCountryModal()"
+                    class="fixed top-20 right-10 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg z-50">
+                    Add Country
+                </button>
+
+                <div id="add-country-modal" class="fixed inset-0 bg-black/70 hidden justify-center items-center z-40"
+                    onclick="closeAddCountryModal()">
+
+                    <div class="bg-white p-6 rounded-md w-[400px] mx-auto mt-[100px] relative"
+                        onclick="event.stopPropagation()">
+
+                        <h2 class="text-xl font-bold mb-4">Add New Country</h2>
+                        <form id="add-country-form" class="space-y-3">
+                            <input type="text" id="country-name" placeholder="Name"
+                                class="w-full border px-3 py-2 rounded-md" required>
+                            <input type="text" id="country-capital" placeholder="Capital"
+                                class="w-full border px-3 py-2 rounded-md" required>
+                            <input type="text" id="country-region" placeholder="Region"
+                                class="w-full border px-3 py-2 rounded-md" required>
+                            <input type="number" id="country-population" placeholder="Population"
+                                class="w-full border px-3 py-2 rounded-md" required>
+
+                            <label for="country-flag"
+                                class="cursor-pointer inline-block w-full border border-dashed border-gray-500 p-4 rounded text-center text-black font-semibold bg-gray-100 hover:bg-gray-200">
+                                Click to upload flag
+                                <input type="file" id="country-flag" class="hidden" accept="image/*" required>
+                            </label>
+
+                            <button type="submit"
+                                class="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-white hover:border-green-500 border-[2px] hover:text-green-500 font-semibold">Add</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

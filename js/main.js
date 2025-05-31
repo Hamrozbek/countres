@@ -9,6 +9,57 @@ let elModalWrapper = document.querySelector(".modal-wrapper")
 let elModalInner = document.querySelector(".modal-inner")
 
 
+let localCountries = JSON.parse(localStorage.getItem("localCountries")) || [];
+countries.push(...localCountries);
+
+function openAddCountryModal() {
+  document.getElementById("add-country-modal").classList.remove("hidden");
+}
+function closeAddCountryModal() {
+  document.getElementById("add-country-modal").classList.add("hidden");
+}
+
+document.getElementById("add-country-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("country-name").value.trim();
+  const capital = document.getElementById("country-capital").value.trim();
+  const region = document.getElementById("country-region").value.trim();
+  const population = document.getElementById("country-population").value.trim();
+  const flagFile = document.getElementById("country-flag").files[0];
+
+  if (!flagFile) {
+    !alert("Bayroq yuklanmadi");
+    return;  
+  }
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const newCountry = {
+      id: Date.now(),
+      name,
+      capital,
+      region,
+      population,
+      flag: reader.result,
+      isLiked: false,
+      isSaved: false,
+    };
+
+    countries.push(newCountry);
+    localCountries.push(newCountry);
+    localStorage.setItem("localCountries", JSON.stringify(localCountries));
+
+    renderCountries(countries, elCountryList);
+    document.getElementById("add-country-form").reset();
+    closeAddCountryModal();
+  };
+
+  reader.readAsDataURL(flagFile);
+});
+
+
+
 let likeList = []
 let SavedList = []
 
