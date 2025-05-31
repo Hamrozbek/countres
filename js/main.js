@@ -17,7 +17,7 @@ let SavedList = []
 function createOptionToSelect() {
   let defaultOption = document.createElement("option");
   defaultOption.textContent = "All option";
-  defaultOption.value = "";
+  defaultOption.value = "all";
   elCountrySelect.appendChild(defaultOption);
 
   countries.forEach(item => {
@@ -71,7 +71,7 @@ function filterCountries() {
 
   let filtered = countries;
 
-  if (selectValue !== "") {
+  if (selectValue && selectValue !== "all") {
     filtered = filtered.filter(item => item.name.toLowerCase() === selectValue);
   }
 
@@ -126,7 +126,6 @@ function handleSavedBtnClick() {
 function handleMoreCLick(id) {
   elModalWrapper.classList.remove("scale-0")
   let findeObj = countries.find(item => item.id == id)
-  console.log(findeObj);
   elModalInner.innerHTML = `
   <div class="flex justify-between gap-[40px] items-center">
     <img class="w-[60%] rounded-[10px]" src="${findeObj.flag}" alt="Single Flag" width="400" height="300"/>
