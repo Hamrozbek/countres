@@ -29,7 +29,7 @@ document.getElementById("add-country-form").addEventListener("submit", function 
   const flagFile = document.getElementById("country-flag").files[0];
 
   if (!flagFile) {
-    !alert("Bayroq yuklanmadi");
+    alert("Bayroq yuklanmadi");
     return;  
   }
 
